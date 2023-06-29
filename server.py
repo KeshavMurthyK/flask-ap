@@ -1,8 +1,9 @@
-from flask import Flask,jsonify
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-items = [{
+items = [
+    {
         'name': 'Table',
         'price': 5000
     },
@@ -12,14 +13,17 @@ items = [{
     }
 ]
 
+
 @app.route('/')
 def index():
-    return 'Deploying Flask Application using AWS ECR'
+    # return {'message': 'Working fine..'}
+    return jsonify(message='Working fine...')
 
 
 @app.route('/items')
 def fetch_items():
     return jsonify(items=items)
 
-if __name__ == "__main__":
-    app.run()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
