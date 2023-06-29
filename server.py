@@ -20,6 +20,6 @@ def index():
 @app.route('/items')
 def fetch_items():
     return jsonify(items=items)
-        
+
 if __name__ == "__main__":
     app.run()
